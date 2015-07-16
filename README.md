@@ -53,10 +53,10 @@ var obj = traverse('container-top',{});
 ```json
     {
         "personal_details": {
-            "first_name": "Rahul",
-            "last_name": "Bawa",
-            "age": "12",
-            "email_id": "gogo@gmail.com"
+            "first_name": "cafebabe",
+            "last_name": "1991",
+            "age": "21",
+            "email_id": "bugville@nowhere.com"
         }
     }
 
