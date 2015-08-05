@@ -3,7 +3,7 @@ Dives deep into the dom and dumps it in the object literal notation.
 
 # How it works ?
 It works by accepting a root-node-id and an empty object. Now it traverses the complete tree and translates every leaf node having an id and a name into its corresponding object literal notation. The name of the leaf node would be translated into an object key and its value will be that key's value.
- 
+
 # How to use it ?
 
 ### Include the script
@@ -17,7 +17,7 @@ It works by accepting a root-node-id and an empty object. Now it traverses the c
     <div class="hide" id="step_one">
         <div class="form-horizontal control-group" id="step-one-one" style="margin-left: -118px">
             <label class="control-label" for="inputName">Name</label>
-     
+
             <div class="controls" id="step-one-one-values">
                 <input class="input_fat span2" type="text" id="inputName" name="first_name" group="personal_details"
                 placeholder="First"
@@ -28,14 +28,14 @@ It works by accepting a root-node-id and an empty object. Now it traverses the c
         </div>
         <div class="form-horizontal control-group" id="step-one-two" style="margin-left: -118px">
             <label class="control-label" for="inputAge">Age</label>
-     
+
             <div class="controls" id="step-one-two-values">
                 <input class="input_fat span2" type="text" id="inputAge" name="age" group="personal_details" placeholder="Age" value="21">
             </div>
         </div>
         <div class="form-horizontal control-group" id="step-one-four" style="margin-left: -118px">
             <label class="control-label" for="inputEmail">Email</label>
-     
+
             <div class="controls" id="step-one-four-values">
                 <input class="input_fat span3" type="text" id="inputEmail" name="email_id" group="personal_details" placeholder="Email"
                       value="bugville@nowhere.com">
@@ -47,7 +47,7 @@ It works by accepting a root-node-id and an empty object. Now it traverses the c
 
 ### Example call to the diver's function
 ```javascript
-var obj = traverse('container-top',{});
+var obj = diver.traverse('container-top',{});
 ```
 ### Output
 ```json
