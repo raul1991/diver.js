@@ -12,14 +12,32 @@ var diver = (function (){
           var array = group.split(".");
           var temp = obj;
           var len  = array.length;
-          for(var i = 0; i < len; i++) {
-              if(temp[array[i]] === undefined){
-                  temp = temp[array[i]] = {};
-                  temp[name] = value;
-              }
-              else
-                  temp = temp[array[i]][name] = value;
+          var target = array[len - 1];
+          
+          if(len == 1) {
+            //single objects like : foo
+            if(obj[group] ===  undefined) {
+              obj[group] = {};
+            }
+            obj[group][name] = value;
           }
+          else {
+            //nested objects like : foo.bar.more
+            for(var i = 0; i < len; i++) {
+               if(temp[array[i]] === undefined) {
+                 temp = temp[array[i]] = {};
+               }
+               else {
+                temp = temp[array[i]];
+               }
+
+               //value must be assigned only if it's the deepest object.
+               if(target === array[i]) {
+                  temp[name] = value;
+               }
+            }  
+          }
+          
           return obj;
       },
       getChildNodes : function getChildNodes(node) {
@@ -60,6 +78,7 @@ var diver = (function (){
 
             var children = utilities.getChildNodes(elementToTraverse);
             for (var ch in children) {
+                if(!children.hasOwnProperty(ch)) continue;
                 var currentChild = children[ch];
                 //ignore the text nodes
                 if (currentChild.nodeType == 3) {
