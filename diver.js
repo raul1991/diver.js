@@ -71,7 +71,7 @@ var diver = (function (){
     return {
       traverse : function traverse(id, obj) {
         var methodName = "traverse";
-        var elementToTraverse = document.getElementById(id);
+        var elementToTraverse = document.getElementById(id) || id;
         var currentElementLength = elementToTraverse.childNodes.length;
 
         if (currentElementLength > 0) {
@@ -85,11 +85,11 @@ var diver = (function (){
                     continue;
                 }
 
-                if (currentChild.nodeType == 1 && currentChild.childNodes.length > 0 && currentChild.id != "") {
+                if (currentChild.nodeType == 1 && currentChild.childNodes.length > 0) {
                     //call without the object argument as it has already been constructed.
-                    traverse(currentChild.id, obj);
+                    traverse(currentChild, obj);
                 }
-                else if (currentChild.nodeType == 1 && currentChild.id != "" && currentChild.getAttribute('name') != null) {
+                else if (currentChild.nodeType == 1 && currentChild.getAttribute('name') != null) {
 
                     var group = currentChild.getAttribute('group') || undefined;
                     var name = currentChild.getAttribute('name');

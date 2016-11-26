@@ -59,7 +59,7 @@ var obj = diver.traverse('container-top',{});
 		"age": "21",
 	    },
 	    "text" : {			
-             "email: {"email_id": "bugville@nowhere.com"}
+             "email": {"email_id": "bugville@nowhere.com"}
 	    }	
         }
     }
