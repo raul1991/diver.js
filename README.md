@@ -30,14 +30,14 @@ It works by accepting a root-node-id and an empty object. Now it traverses the c
             <label class="control-label" for="inputAge">Age</label>
 
             <div class="controls" id="step-one-two-values">
-                <input class="input_fat span2" type="text" id="inputAge" name="age" group="personal_details" placeholder="Age" value="21">
+                <input class="input_fat span2" type="text" id="inputAge" name="age" group="personal_details.number" placeholder="Age" value="21">
             </div>
         </div>
         <div class="form-horizontal control-group" id="step-one-four" style="margin-left: -118px">
             <label class="control-label" for="inputEmail">Email</label>
 
             <div class="controls" id="step-one-four-values">
-                <input class="input_fat span3" type="text" id="inputEmail" name="email_id" group="personal_details" placeholder="Email"
+                <input class="input_fat span3" type="text" id="inputEmail" name="email_id" group="personal_details.text.email" placeholder="Email"
                       value="bugville@nowhere.com">
             </div>
         </div>
@@ -55,8 +55,12 @@ var obj = diver.traverse('container-top',{});
         "personal_details": {
             "first_name": "cafebabe",
             "last_name": "1991",
-            "age": "21",
-            "email_id": "bugville@nowhere.com"
+	    "number" : {
+		"age": "21",
+	    },
+	    "text" : {			
+             "email: {"email_id": "bugville@nowhere.com"}
+	    }	
         }
     }
 
