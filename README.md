@@ -56,10 +56,10 @@ var obj = diver.traverse('container-top',{});
             "first_name": "cafebabe",
             "last_name": "1991",
 	    "number" : {
-		"age": "21",
+		"age": "21"
 	    },
-	    "text" : {			
-             "email": {"email_id": "bugville@nowhere.com"}
+	    "text" : {	
+             	"email": {"email_id": "bugville@nowhere.com"}
 	    }	
         }
     }
