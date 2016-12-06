@@ -44,7 +44,8 @@ var diver = (function (){
           switch (node.nodeName.toLowerCase()) {
               case "form":
                   return node.elements;
-
+              case "select":
+                  return node;
               default :
                   return node.childNodes;
           }
@@ -57,58 +58,63 @@ var diver = (function (){
               case "span":
               case "div":
               case "h1" || "h2" || "h3" || "h4" || "h5" || "h6":
-
                   return element.innerHTML;
               case "a":
-
                   return element.href;
+              case "select":
+                  var options = element.options;
+                  return options[options.selectedIndex].value;
               default:
-
                   return element.value;
           }
+      },
+      dumpValue : function dumpValue(currentChild, obj) {
+        var group = currentChild.getAttribute('group') || undefined;
+        var name = currentChild.getAttribute('name');
+        var value = utilities.getValue(currentChild);
+        //todo: Add support for this soon.
+        var dataType = currentChild.getAttribute('data-type') || undefined;
+
+        if(!group){
+          obj[name] = value || "";
+        }
+        else{
+          obj = utilities.createHierarchy(obj, group, name, value);
+        }
+        return obj;
       }
     };
     return {
       traverse : function traverse(id, obj) {
         var methodName = "traverse";
         var elementToTraverse = document.getElementById(id) || id;
+        var isSelect = (elementToTraverse.nodeName.toLowerCase() == "select");
         var currentElementLength = elementToTraverse.childNodes.length;
 
-        if (currentElementLength > 0) {
+        if (currentElementLength > 0 && !isSelect) {
 
             var children = utilities.getChildNodes(elementToTraverse);
             for (var ch in children) {
                 if(!children.hasOwnProperty(ch)) continue;
                 var currentChild = children[ch];
                 //ignore the text nodes
-                if (currentChild.nodeType == 3) {
+                if (currentChild.nodeType != 1) {
                     continue;
                 }
-
-                if (currentChild.nodeType == 1 && currentChild.childNodes.length > 0) {
-                    //call without the object argument as it has already been constructed.
+                else if (currentChild.nodeType == 1 && currentChild.childNodes.length > 0) {
                     traverse(currentChild, obj);
                 }
                 else if (currentChild.nodeType == 1 && currentChild.getAttribute('name') != null) {
-
-                    var group = currentChild.getAttribute('group') || undefined;
-                    var name = currentChild.getAttribute('name');
-                    var value = utilities.getValue(currentChild);
-                    var dataType = currentChild.getAttribute('data-type') || undefined;
-
-                    if(!group){
-                        obj[name] = value || "";
-                    }
-                    else{
-                        obj = utilities.createHierarchy(obj, group, name, value);
-                    }
-
+                    obj = utilities.dumpValue(currentChild, obj);
                 }
                 else {
-
                     //catch exception
                 }
             }
+        }
+        else {
+          console.log("Dumping value for "+ elementToTraverse.nodeName);
+          obj = utilities.dumpValue(elementToTraverse, obj);
         }
         return obj;
       }

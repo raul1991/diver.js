@@ -37,6 +37,11 @@ It works by accepting a root-node-id and an empty object. Now it traverses the c
 
             <div class="controls">
                 <input class="input_fat span3" type="text" group="personal_details.email" name="email_id"  placeholder="Email" value="bugville@nowhere.com">
+                <select name="cars">
+                    <option>Lamborghini</option>
+                    <option>Porsche</option>
+                    <option>Maybach</option>
+                </select>
             </div>
         </div>
     </div>
