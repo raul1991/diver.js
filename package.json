@@ -1,0 +1,31 @@
+{
+  "name": "diver.js",
+  "version": "1.0.1",
+  "description": "Dump html into corresponding json",
+  "main": "diver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raul1991/diver.js.git"
+  },
+  "keywords": [
+    "html",
+    "json",
+    "object",
+    "notation",
+    "parser"
+  ],
+  "author": "cafebabe1991",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raul1991/diver.js/issues"
+  },
+  "homepage": "https://github.com/raul1991/diver.js#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  }
+}
