@@ -54,17 +54,17 @@ var obj = diver.traverse('container-top',{});
 ```
 ### Output
 ```json
-    {
-        "personal_details": {
-            "first_name": "cafebabe",
-            "last_name": "1991",
-	    "number" : {
-		"age": "21"
-	    },
-	    "text" : {	
-             	"email": {"email_id": "bugville@nowhere.com"}
-	    }	
-        }
-    }
-
+{
+	"personal_details": {
+		"first_name": "cafebabe",
+		"last_name": "1991",
+		"age": {
+			"age": "21"
+		},
+		"email": {
+			"email_id": "bugville@nowhere.com"
+		}
+	},
+	"cars": "Lamborghini"
+}
 ```
