@@ -113,7 +113,6 @@ var diver = (function (){
             }
         }
         else {
-          console.log("Dumping value for "+ elementToTraverse.nodeName);
           obj = utilities.dumpValue(elementToTraverse, obj);
         }
         return obj;
