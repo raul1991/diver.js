@@ -53,6 +53,9 @@ var diver = (function (){
       },
       getValue : function getValue(element) {
           var methodName = "getValue";
+          //for checkboxes and radio buttons
+          var isBooleanType = ((element.type == "radio") || (element.type == "checkbox"));
+          if(isBooleanType) return element.checked;
 
           switch (element.nodeName.toLowerCase()) {
               case "span":
@@ -61,6 +64,8 @@ var diver = (function (){
                   return element.innerHTML;
               case "a":
                   return element.href;
+              case "checkbox" || "radio":
+                  return element.checked;
               case "select":
                   var options = element.options;
                   return options[options.selectedIndex].value;
@@ -113,7 +118,6 @@ var diver = (function (){
             }
         }
         else {
-          console.log("Dumping value for "+ elementToTraverse.nodeName);
           obj = utilities.dumpValue(elementToTraverse, obj);
         }
         return obj;
