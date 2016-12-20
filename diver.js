@@ -70,8 +70,16 @@ var diver = (function (){
                   var options = element.options;
                   return options[options.selectedIndex].value;
               default:
+                  //input
+                  var delimiter = element.getAttribute('delimiter') || undefined;
+                  if(delimiter) {
+                    var values = [];
+                    values = values.concat(element.value.split(delimiter));
+                    return values;
+                  }
                   return element.value;
           }
+          
       },
       dumpValue : function dumpValue(currentChild, obj) {
         var group = currentChild.getAttribute('group') || undefined;
