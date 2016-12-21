@@ -67,6 +67,7 @@ var obj = diver.traverse('container-top',{});
 ```json
 {
 "personal_details": {
+        "isChecked" : "false",
 	"first_name": "cafebabe",
 	"last_name": "1991",
 	"Delimited-values":["foo","bar","john-doe"],
