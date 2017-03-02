@@ -56,13 +56,12 @@ It is important to note that "Select" html element is an exception to the aforem
     </div>
 </div>
 </div>
-</div>```
-
+</div>
+```
 ### Example call to the diver's function
 ```javascript
 var obj = diver.traverse('container-top',{});
 ```
-
 ### Output
 ```json
 {
