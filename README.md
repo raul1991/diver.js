@@ -1,5 +1,5 @@
 # diver.js
-Dives deep into the DOM and dumps it in the object literal notation.
+Dives deep into the DOM and dumps it as a js object.
 
 # How it works ?
 It works by accepting a root-node-id and an empty object. Now it traverses the complete tree and translates every leaf node having an id and a name into its corresponding object literal notation. The name of the leaf node would be translated into an object key and its value will be that key's value.
