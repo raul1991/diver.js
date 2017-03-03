@@ -10,7 +10,7 @@ It is important to note that "Select" html element is an exception to the aforem
 | Attribute |                   Value                   |                                                                          Use With                                                                          |
 |:---------:|:-----------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |   group   |         path.to.your.json.property        | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. |
-| Delimiter | Any token that separates the input value. |                                                                    input - Html Element                                                                    |
+| delimiter | Any token that separates the input value. |                                                                    input - Html Element                                                                    |
 |    name   |            Any valid object key           | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. |
 
 # How to use it ?
@@ -66,16 +66,16 @@ var obj = diver.traverse('container-top',{});
 ```json
 {
 "personal_details": {
-        "isChecked" : "false",
-	"first_name": "cafebabe",
-	"last_name": "1991",
-	"Delimited-values":["foo","bar","john-doe"],
-	"age": {
-		"age": "21"
-	},
-	"email": {
-		"email_id": "bugville@nowhere.com"
-	}
+   "isChecked" : "false",
+   "first_name": "cafebabe",
+   "last_name": "1991",
+   "Delimited-values":["foo","bar","john-doe"],
+   "age": {
+     "age": "21"
+   },
+   "email": {
+     "email_id": "bugville@nowhere.com"
+    }
 },
 "cars": "Lamborghini"
 }
