@@ -1,5 +1,6 @@
 # diver.js
-Dives deep into the DOM and dumps it in the object literal notation.
+Dives deep into the DOM and dumps it as a js object.
+
 # How it works ?
 It works by accepting a root-node-id and an empty object. Now it traverses the complete tree and translates every leaf node having an id and a name into its corresponding object literal notation. The name of the leaf node would be translated into an object key and its value will be that key's value.
 It is important to note that "Select" html element is an exception to the aforementioned criteria. The name attribute on the select element will be taken as the key and the selected option would be taken as it's value.
@@ -7,7 +8,7 @@ It is important to note that "Select" html element is an exception to the aforem
 | Attribute |                   Value                   |                                                                          Use With                                                                          |
 |:---------:|:-----------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |   group   |         path.to.your.json.property        | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. |
-| Delimiter | Any token that separates the input value. |                                                                    input - Html Element                                                                    |
+| delimiter | Any token that separates the input value. |                                                                    input - Html Element                                                                    |
 |    name   |            Any valid object key           | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. |
 # How to use it ?
 ### Include the script
@@ -56,18 +57,18 @@ var obj = diver.traverse('container-top',{});
 ### Output
 ```json
 {
-	"personal_details": {
-		"isChecked": "false",
-		"first_name": "cafebabe",
-		"last_name": "1991",
-		"Delimited-values": ["foo", "bar", "john-doe"],
-		"age": {
-			"age": "21"
-		},
-		"email": {
-			"email_id": "bugville@nowhere.com"
-		}
-	},
-	"cars": "Lamborghini"
+"personal_details": {
+   "isChecked" : "false",
+   "first_name": "cafebabe",
+   "last_name": "1991",
+   "Delimited-values":["foo","bar","john-doe"],
+   "age": {
+     "age": "21"
+   },
+   "email": {
+     "email_id": "bugville@nowhere.com"
+    }
+},
+"cars": "Lamborghini"
 }
 ```
