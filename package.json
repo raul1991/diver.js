@@ -4,6 +4,7 @@
   "description": "Dump html into corresponding json",
   "main": "diver.js",
   "scripts": {
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
