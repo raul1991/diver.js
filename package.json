@@ -24,9 +24,10 @@
     "url": "https://github.com/raul1991/diver.js/issues"
   },
   "homepage": "https://github.com/raul1991/diver.js#readme",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.1.2",
+    "jshint": "^2.9.4"
   }
 }

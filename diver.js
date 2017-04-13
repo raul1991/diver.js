@@ -117,7 +117,7 @@ var diver = (function (){
                 else if (currentChild.nodeType == 1 && currentChild.childNodes.length > 0) {
                     traverse(currentChild, obj);
                 }
-                else if (currentChild.nodeType == 1 && currentChild.getAttribute('name') != null) {
+                else if (currentChild.nodeType == 1 && currentChild.getAttribute('name') !== null) {
                     obj = utilities.dumpValue(currentChild, obj);
                 }
                 else {
@@ -130,5 +130,5 @@ var diver = (function (){
         }
         return obj;
       }
-    }
+    };
 })();
