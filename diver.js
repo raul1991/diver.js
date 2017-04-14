@@ -1,8 +1,3 @@
-/**
- * Makes an object full of valid input values.
- * @param id :  Id of the container.
- * @param obj : Object to populate with values
- */
 var diver = (function (){
     "use strict";
     var utilities =
@@ -98,6 +93,11 @@ var diver = (function (){
       }
     };
     return {
+      /*
+      *  traverses the child elements of the passed in container id.
+      * @param id : The container which has to be traversed.
+      * @param obj : An empty object to put the value into it.
+      */
       traverse : function traverse(id, obj) {
         var elementToTraverse = document.getElementById(id) || id;
         var isSelect = (elementToTraverse.nodeName.toLowerCase() == "select");
