@@ -4,11 +4,10 @@
  * @param obj : Object to populate with values
  */
 var diver = (function (){
+    "use strict";
     var utilities =
     {
       createHierarchy : function createHierarchy(obj, group, name, value){
-          var methodName = "createHierarchy";
-
           var array = group.split(".");
           var temp = obj;
           var len  = array.length;
@@ -52,10 +51,11 @@ var diver = (function (){
 
       },
       getValue : function getValue(element) {
-          var methodName = "getValue";
           //for checkboxes and radio buttons
           var isBooleanType = ((element.type == "radio") || (element.type == "checkbox"));
-          if(isBooleanType) return element.checked;
+          if(isBooleanType) {
+            return element.checked;
+          }
 
           switch (element.nodeName.toLowerCase()) {
               case "span":
@@ -71,7 +71,7 @@ var diver = (function (){
                   return options[options.selectedIndex].value;
               default:
                   //input
-                  var delimiter = element.getAttribute('delimiter') || undefined;
+                  var delimiter = element.getAttribute("delimiter") || undefined;
                   if(delimiter) {
                     var values = [];
                     values = values.concat(element.value.split(delimiter));
@@ -82,11 +82,11 @@ var diver = (function (){
           
       },
       dumpValue : function dumpValue(currentChild, obj) {
-        var group = currentChild.getAttribute('group') || undefined;
-        var name = currentChild.getAttribute('name');
+        var group = currentChild.getAttribute("group") || undefined;
+        var name = currentChild.getAttribute("name");
         var value = utilities.getValue(currentChild);
         //todo: Add support for this soon.
-        var dataType = currentChild.getAttribute('data-type') || undefined;
+        var dataType = currentChild.getAttribute("data-type") || undefined;
 
         if(!group){
           obj[name] = value || "";
@@ -99,7 +99,6 @@ var diver = (function (){
     };
     return {
       traverse : function traverse(id, obj) {
-        var methodName = "traverse";
         var elementToTraverse = document.getElementById(id) || id;
         var isSelect = (elementToTraverse.nodeName.toLowerCase() == "select");
         var currentElementLength = elementToTraverse.childNodes.length;
@@ -108,7 +107,9 @@ var diver = (function (){
 
             var children = utilities.getChildNodes(elementToTraverse);
             for (var ch in children) {
-                if(!children.hasOwnProperty(ch)) continue;
+                if(!children.hasOwnProperty(ch)) {
+                  continue;
+                }
                 var currentChild = children[ch];
                 //ignore the text nodes
                 if (currentChild.nodeType != 1) {
@@ -117,7 +118,7 @@ var diver = (function (){
                 else if (currentChild.nodeType == 1 && currentChild.childNodes.length > 0) {
                     traverse(currentChild, obj);
                 }
-                else if (currentChild.nodeType == 1 && currentChild.getAttribute('name') !== null) {
+                else if (currentChild.nodeType == 1 && currentChild.getAttribute("name") !== null) {
                     obj = utilities.dumpValue(currentChild, obj);
                 }
                 else {
