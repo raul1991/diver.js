@@ -4,7 +4,7 @@ var gulp = require("gulp"),
 	jshint = require("gulp-jshint"),
 	sequence = require("gulp-sequence"),
 	del = require("del"),
-	watch = require("gulp-watch");
+	connect = require("gulp-connect");
 
 function package() {
 	return gulp.src("diver.js")
@@ -33,5 +33,24 @@ function clean() {
 	]);
 }
 
+function reload() {
+	return gulp.src('./examples/*.html')
+		.pipe(connect.reload());
+}
+
+function keepWatching() {
+	return gulp.watch(['./examples/*.html'], gulp.series(reload));
+}
+
+function fireUp() {
+	return connect.server({
+		root: ".",
+		port: 8080,
+		livereload: true
+	});
+}
+
 var build = gulp.series(clean, lint, minify, package);
-gulp.task('build', build);
+var run = gulp.series(build, gulp.parallel(fireUp, keepWatching));
+gulp.task("build", build);
+gulp.task("run", run);
