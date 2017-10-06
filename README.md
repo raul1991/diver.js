@@ -11,11 +11,11 @@ It is important to note that "Select" html element is an exception to the aforem
 Read more about the terms used in this repository on the [wiki page](https://github.com/raul1991/diver.js/wiki)
 # Attributes supported by the library
 
-| Attribute |                   Value                   |                                                                          Use With                                                                          |
-|:---------:|:-----------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|   group   |         path.to.your.json.property        | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. |
-| delimiter | Any token that separates the input value. |                                                                    input - Html Element                                                                    |
-|    name   |            Any valid object key           | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. |
+| Attribute |                   Value                   |                                                                          Use With                                                                          |  Output Type |
+|---------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+|   group   |         path.to.your.json.property        | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. | string |
+| delimiter | Any token that separates the input value. |                                                                    input - Html Element                                                                    | javascript array [] |
+|    name   |            Any valid object key           | Any non-container html element like h1..h6, p, input(preferably) etc. Any element which will have child elements inside it won't work like table, div etc. | string |
 
 # How to use it ?
 ### Include the script
