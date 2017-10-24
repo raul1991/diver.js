@@ -30,7 +30,6 @@
     "gulp-connect": "^5.0.0",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
-    "gulp-sequence": "^0.4.6",
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.11",
     "jshint": "^2.9.4"
