@@ -42,6 +42,11 @@ function reloadJs() {
 		.pipe(connect.reload());
 }
 
+function watch() {
+	gulp.watch(["./examples/*.html"], reloadHtml);
+	gulp.watch(["./diver.js"], gulp.series([build, reloadJs]));
+}
+
 function keepWatching() {
 	return gulp.watch(['./examples/*.html'], gulp.series(reload));
 }
@@ -55,6 +60,6 @@ function fireUp() {
 }
 
 var build = gulp.series(clean, lint, minify, package);
-var run = gulp.series(build, gulp.parallel(fireUp, keepWatching));
+var run = gulp.series(build, gulp.parallel(fireUp, watch));
 gulp.task("build", build);
 gulp.task("run", run);
