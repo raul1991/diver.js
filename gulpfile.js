@@ -47,10 +47,6 @@ function watch() {
 	gulp.watch(["./diver.js"], gulp.series([build, reloadJs]));
 }
 
-function keepWatching() {
-	return gulp.watch(['./examples/*.html'], gulp.series(reload));
-}
-
 function fireUp() {
 	return connect.server({
 		root: ".",
