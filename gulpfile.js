@@ -2,7 +2,6 @@ var gulp = require("gulp"),
 	uglify = require("gulp-uglify"),
 	rename = require("gulp-rename"),
 	jshint = require("gulp-jshint"),
-	sequence = require("gulp-sequence"),
 	del = require("del"),
 	connect = require("gulp-connect");
 
@@ -33,13 +32,19 @@ function clean() {
 	]);
 }
 
-function reload() {
+function reloadHtml() {
 	return gulp.src('./examples/*.html')
 		.pipe(connect.reload());
 }
 
-function keepWatching() {
-	return gulp.watch(['./examples/*.html'], gulp.series(reload));
+function reloadJs() {
+	return gulp.src("./diver.js")
+		.pipe(connect.reload());
+}
+
+function watch() {
+	gulp.watch(["./examples/*.html"], reloadHtml);
+	gulp.watch(["./diver.js"], gulp.series([build, reloadJs]));
 }
 
 function fireUp() {
@@ -51,6 +56,6 @@ function fireUp() {
 }
 
 var build = gulp.series(clean, lint, minify, package);
-var run = gulp.series(build, gulp.parallel(fireUp, keepWatching));
+var run = gulp.series(build, gulp.parallel(fireUp, watch));
 gulp.task("build", build);
 gulp.task("run", run);
