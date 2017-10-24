@@ -32,8 +32,13 @@ function clean() {
 	]);
 }
 
-function reload() {
+function reloadHtml() {
 	return gulp.src('./examples/*.html')
+		.pipe(connect.reload());
+}
+
+function reloadJs() {
+	return gulp.src("./diver.js")
 		.pipe(connect.reload());
 }
 
