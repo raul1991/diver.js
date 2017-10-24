@@ -2,7 +2,6 @@ var gulp = require("gulp"),
 	uglify = require("gulp-uglify"),
 	rename = require("gulp-rename"),
 	jshint = require("gulp-jshint"),
-	sequence = require("gulp-sequence"),
 	del = require("del"),
 	connect = require("gulp-connect");
 
