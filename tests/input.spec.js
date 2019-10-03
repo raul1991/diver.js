@@ -14,9 +14,35 @@ describe("Checkbox fields", () => {
     });
   });
 
-  it("should create a key value pair from name and checked", () => {
+  it("should create a key value pair from name and empty value for unchecked", () => {
     verifyDiver(`<input type="checkbox" name="isChecked" >`, {
       isChecked: '' // TODO: Shouldn't this be false?
     });
   });
 });
+
+describe("Radio fields", () => {
+  // TODO: Should return the value and not true/false if an item is checked.
+  xit("should create a key value pair from name and checked", () => {
+    verifyDiver(`
+      <div>
+        <input type="radio" name="color" value='blue'>
+        <input type="radio" name="color" value='red' checked>
+        <input type="radio" name="color" value='green'>
+      </div>`, {
+      color:  'red'
+    });
+  });
+
+  it("should create a key value pair from name and empty value for unchecked", () => {
+    verifyDiver(`
+      <div>
+        <input type="radio" name="color" value='blue'>
+        <input type="radio" name="color" value='red'>
+        <input type="radio" name="color" value='green'>
+      </div>`, {
+      color:  ''
+    });
+  });
+});
+
