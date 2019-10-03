@@ -5,7 +5,7 @@
   "main": "diver.js",
   "scripts": {
     "build": "gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.config.js"
   },
   "repository": {
     "type": "git",
@@ -26,12 +26,17 @@
   "homepage": "https://github.com/raul1991/diver.js#readme",
   "devDependencies": {
     "del": "^2.2.2",
-    "gulp": "gulpjs/gulp#4.0",
+    "gulp": "4.0",
     "gulp-connect": "^5.0.0",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.11",
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "karma": "^4.3.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-diff": "^0.1.1",
+    "karma-jasmine-diff-reporter": "^2.0.0"
   }
 }
