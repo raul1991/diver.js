@@ -46,7 +46,7 @@ Read more about the terms used in this repository on the [wiki page](https://git
             <div>
                 <input type="text" group="personal_details.email" name="email_id"  placeholder="Email" value="bugville@nowhere.com">
                 <input type="checkbox" group="personal_details" name="isChecked">
-                <input type="text" name="Delimited-values" delimiter="," placeholder="delimited values" value="foo,bar,john-doe">
+                <input type="text" name="values" delimiter="," placeholder="delimited values" value="foo,bar,john-doe">
                 <select name="cars">
                     <option>Lamborghini</option>
                     <option>Porsche</option>
@@ -68,7 +68,7 @@ var obj = diver.traverse('container-top',{});
    "isChecked" : "false",
    "first_name": "cafebabe",
    "last_name": "1991",
-   "Delimited-values":["foo","bar","john-doe"],
+   "values":["foo","bar","john-doe"],
    "age": {
      "age": "21"
    },
