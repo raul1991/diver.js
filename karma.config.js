@@ -15,6 +15,11 @@ module.exports = function(config) {
     concurrency: Infinity,
     browsers: ["ChromeHeadless"],
     frameworks: ["jasmine"],
-    reporters: ["jasmine-diff"]
+    reporters: ["jasmine-diff"],
+    jasmineDiffReporter: {
+      pretty: true,
+      multiline: true,
+      verbose: false
+    }
   });
 };
