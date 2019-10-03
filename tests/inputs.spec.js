@@ -13,4 +13,10 @@ describe("Checkbox fields", () => {
       isChecked: true
     });
   });
+
+  it("should create a key value pair from name and checked", () => {
+    verifyDiver(`<input type="checkbox" name="isChecked" >`, {
+      isChecked: '' // TODO: Shouldn't this be false?
+    });
+  });
 });
