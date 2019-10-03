@@ -23,7 +23,7 @@ describe("Examples", () => {
               <div class="controls">
                   <input class="input_fat span3" type="text" group="personal_details.email" name="email_id"  placeholder="Email" value="bugville@nowhere.com">
                   <input class="input_fat span3" type="checkbox" group="personal_details" name="isChecked">
-                  <input class="input_fat span3" type="text" name="Delimited-values" delimiter="," placeholder="delimited values" value="foo,bar,john-doe">
+                  <input class="input_fat span3" type="text" name="values" delimiter="," placeholder="delimited values" value="foo,bar,john-doe">
                   <select name="cars">
                       <option>Lamborghini</option>
                       <option>Porsche</option>
@@ -34,7 +34,7 @@ describe("Examples", () => {
       </div>
   </div>`,
       {
-        "Delimited-values": ["foo", "bar", "john-doe"],
+        values: ["foo", "bar", "john-doe"],
         cars: "Lamborghini",
         personal_details: {
           age: { age: "21" },
