@@ -40,7 +40,6 @@ describe("Examples", () => {
           age: { age: "21" },
           email: { email_id: "bugville@nowhere.com" },
           first_name: "cafebabe",
-          isChecked: false,
           last_name: "1991"
         }
       },
