@@ -62,10 +62,10 @@ Read more about the terms used in this repository on the [wiki page](https://git
 var obj = diver.traverse('container-top',{});
 ```
 ### Output
+Input fields with no value will not be dumped for example 'isChecked'
 ```json
 {
 "personal_details": {
-   "isChecked" : "false",
    "first_name": "cafebabe",
    "last_name": "1991",
    "values":["foo","bar","john-doe"],

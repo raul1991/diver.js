@@ -11,16 +11,7 @@ describe("Containers", () => {
         <h5 name="h5_name"></h5>
         <h6 name="h6_name"></h6>
       </div>`,
-      { 
-        div_name: '',
-        h1_name: '',
-        h2_name: '',
-        h3_name: '',
-        h4_name: '',
-        h5_name: '',
-        h6_name: '',
-        span_name: ''
-      }
+      {}
     );
   });
 });

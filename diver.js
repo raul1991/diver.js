@@ -47,24 +47,18 @@ var diver = (function (){
       },
       getValue : function getValue(element) {
           //for checkboxes and radio buttons
-          switch (element.type) {
-              case 'radio':
-                  return element.value;
-              case 'checkbox':
-                  return element.checked !== '';
-              default:
-                  break;
+          var isBooleanType = ((element.type == "radio") || (element.type == "checkbox"));
+          if(isBooleanType) {
+            return element.checked ? element.getAttribute('value') : '';
           }
 
           switch (element.nodeName.toLowerCase()) {
               case "span":
               case "div":
-              case "h1" || "h2" || "h3" || "h4" || "h5" || "h6":
+              case "h1": case "h2": case "h3": case "h4": case "h5": case "h6":
                   return element.innerHTML;
               case "a":
                   return element.href;
-              case "checkbox" || "radio":
-                  return element.checked;
               case "select":
                   var options = element.options;
                   return options[options.selectedIndex].value;
@@ -84,6 +78,8 @@ var diver = (function (){
         var group = currentChild.getAttribute("group") || undefined;
         var name = currentChild.getAttribute("name");
         var value = utilities.getValue(currentChild);
+        // don't dump the empty values
+        if (value === '') return obj;
         //todo: Add support for this soon.
         var dataType = currentChild.getAttribute("data-type") || undefined;
 
