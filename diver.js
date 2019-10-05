@@ -47,9 +47,13 @@ var diver = (function (){
       },
       getValue : function getValue(element) {
           //for checkboxes and radio buttons
-          var isBooleanType = ((element.type == "radio") || (element.type == "checkbox"));
-          if(isBooleanType) {
-            return element.checked;
+          switch (element.type) {
+              case 'radio':
+                  return element.value;
+              case 'checkbox':
+                  return element.checked !== '';
+              default:
+                  break;
           }
 
           switch (element.nodeName.toLowerCase()) {
