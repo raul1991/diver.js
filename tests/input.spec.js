@@ -41,7 +41,7 @@ describe("Radio fields", () => {
         <input type="radio" name="color" value='red'>
         <input type="radio" name="color" value='green'>
       </div>`, {
-      color:  ''
+      color: 'green'
     });
   });
 });
